@@ -16,3 +16,32 @@ html {
 body {
   margin-bottom: 60px;
 }
+h1, h2, h3, h4, h5, h6 {
+    color: #2d409d;
+}
+
+p {
+    color: #081713;
+}
+.card {
+    background-color: #efdddd;
+}
+
+/*https://www.htmlgoodies.com/cms/styling-select-css-html/*/
+select {
+    font-size: 18px !important;
+    text-overflow: ellipsis;
+    color: #08440b;
+    border: 1px solid var(--select-border);
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 1.25rem;
+    cursor: pointer;
+    line-height: 1.1;
+    background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+}
+
+select option {
+        font-size: 18px;
+        color: #08440b;
+    }
