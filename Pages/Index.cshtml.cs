@@ -1,4 +1,5 @@
-﻿using CoffeeClasses.Operations;
+﻿using CoffeeClasses.Models;
+using CoffeeClasses.Operations;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,17 +8,24 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CoffeeClasses.Pages
 {
-   [BindProperties]
+    [BindProperties]
     public class IndexModel : PageModel
     {
-        [Display(Name="Select a Coffee Type")]
+
+        public Coffee? Coffee { get; set; }
+        [Display(Name = "Select a Coffee Type")]
         public EnumCoffeeType CoffeeSelector { get; set; }
-        public string? SelectedCoffee { get; set; }
+        public int? SelectedCoffee { get; set; }
+        public bool HasData { get; set; } = false;
 
 
-        public void OnGet()
+
+        public async Task<IActionResult> OnPost()
         {
-
+            HasData = true;
+            Coffee = Factory.GetAStudent(SelectedCoffee);
+            return Page();
         }
+
     }
 }

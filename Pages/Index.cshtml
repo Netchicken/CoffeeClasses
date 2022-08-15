@@ -12,22 +12,20 @@
 
             </div>
             <div class="card-body">
-                <h3>Body</h3>
+               
 
                 <form method="post">
                     <div class="form-group">
-                        <div class="row">
-                            <p class="card-text">Add stuff here</p>
-                        </div>
+                       
 
                         <div class="row">
 
 
-                            <label asp-for="CoffeeSelector" class="col-lg-2"></label>
+                           <h3>Choose a Coffee to Make</h3>
                             <select asp-for="SelectedCoffee" class="col-lg-2" asp-items="Html.GetEnumSelectList<EnumCoffeeType>()">
                             </select>
 
-
+                            <p></p>
 
 
                             <input type="submit" value="Submit" asp-action="Index" />
@@ -36,10 +34,35 @@
                 </form>
             </div>
             <div class="card-footer">
-                <h3>Footer</h3>
+               
 
                 <div class="row">
-                    <p class="card-text">Add stuff here</p>
+                    @if (Model.HasData == true)
+                    {
+                        <h3>@Model.Coffee.CoffeeName </h3> 
+                        <h4>@Model.Coffee.InstructionTitle</h4>
+                        <p>  Shots of Coffee    @Model.Coffee.Shots </p>
+                        <p>  Does it have milk?    @Model.Coffee.HasMilk Does it have water?    @Model.Coffee.HasWater </p>
+                        <p>  Cup Type    @Model.Coffee.CupType </p>
+
+                        <p>@Model.Coffee.Instructions</p>
+
+
+                        @if (Model.Coffee.ListOfExtras.Count >0)
+                        {
+
+                      
+
+                    <p><b>Extra Ingredients</b></p>
+                        <ul>
+                            @foreach (var item in Model.Coffee.ListOfExtras)
+                            {
+                                <li> @item   </li>
+                            }
+                        </ul>
+                        }
+                    }
+
                 </div>
             </div>
         </div>

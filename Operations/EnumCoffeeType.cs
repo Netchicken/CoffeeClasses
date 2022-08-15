@@ -4,7 +4,8 @@
     {
         Latte,
         Macchiato,
-        Cappuchino
-
+        Cappuchino,
+        FlatWhite,
+        LongBlack
     }
 }
