@@ -19,11 +19,17 @@ namespace CoffeeClasses.Pages
         public bool HasData { get; set; } = false;
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> OnPost()
         {
             HasData = true;
             Coffee = Factory.GetAStudent(SelectedCoffee);
+
+           
+            
             return Page();
         }
 
